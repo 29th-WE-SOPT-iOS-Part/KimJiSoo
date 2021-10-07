@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 // MARK: - SignupViewController
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
   
   // MARK: - Components
   let logoImageView = UIImageView()
@@ -24,14 +24,36 @@ class SignupViewController: UIViewController {
   let showpasswordButton = UIButton()
   let showpasswordLabel = UILabel()
   let nextButton = UIButton()
+  var checkFieldfill : Bool?
+  
   // MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = .white
     self.navigationController?.navigationBar.isHidden = true
     layout()
+    setTextField()
   }
-  
+  ///TextField 세개에 내용이 모두 찼을 때 버튼이 활성화 되도록
+  func setTextField() {
+    self.nameTextField.delegate = self
+    self.emailTextField.delegate = self
+    self.passwordTextField.delegate = self
+    nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+    emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+    passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+  }
+  @objc func textFieldDidChange(_ textField: UITextField) {
+    if nameTextField.text!.isEmpty || emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
+      nextButton.isEnabled = false
+      nextButton.backgroundColor = .lightGray
+      nextButton.setTitleColor(.white, for: .normal)
+    } else {
+      nextButton.isEnabled = true
+      nextButton.backgroundColor = .blue
+      nextButton.setTitleColor(.white, for: .normal)
+    }
+  }
 }
 
 // MARK: - Extension
@@ -140,6 +162,7 @@ extension SignupViewController {
       $0.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력해주세요",
                                                     attributes: [NSAttributedString.Key.font: UIFont.notoSansKRRegularFont(fontSize: 14),
                                                                  NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+      $0.isSecureTextEntry = true
       $0.snp.makeConstraints {
         $0.centerY.equalTo(self.passwordTextFieldBorderView)
         $0.leading.equalTo(self.passwordTextFieldBorderView.snp.leading).offset(8)
@@ -169,7 +192,8 @@ extension SignupViewController {
   }
   func layoutNextButton() {
     self.view.add(self.nextButton) {
-      $0.setupButton(title: "다음", color: .white, font: .notoSansKRRegularFont(fontSize: 18), backgroundColor: .blue, state: .normal, radius: 10)
+      $0.setupButton(title: "다음", color: .white, font: .notoSansKRRegularFont(fontSize: 18), backgroundColor: .lightGray, state: .normal, radius: 10)
+      $0.isEnabled = false
       $0.addTarget(self, action: #selector(self.nextButtonClicked), for: .touchUpInside)
       $0.snp.makeConstraints {
         $0.top.equalTo(self.showpasswordLabel.snp.bottom).offset(40)
@@ -183,11 +207,15 @@ extension SignupViewController {
   @objc func checkboxButtonClicked() {
     if showpasswordButton.isSelected == false {
       showpasswordButton.setImage(UIImage(named: "checkbox_selected"), for: .normal)
+      /// password 보여지게
+      passwordTextField.isSecureTextEntry = false
       /// showpasswordButton 의 상태를 true로 바꿔준다
       showpasswordButton.isSelected = true
     }
     else {
       showpasswordButton.setImage(UIImage(named: "checkbox_unselected"), for: .normal)
+      /// password 숨겨지도록
+      passwordTextField.isSecureTextEntry = true
       /// showpasswordButton 의 상태를 false로 바꿔준다
       showpasswordButton.isSelected = false
     }
@@ -197,6 +225,9 @@ extension SignupViewController {
     WelcomeVC.modalTransitionStyle = .crossDissolve
     WelcomeVC.modalPresentationStyle = .fullScreen
     WelcomeVC.usernameData = nameTextField.text
-    self.present(WelcomeVC, animated: true, completion: nil)
+    ///버튼이 활성화 될 때만 다음 화면으로 넘어가게
+    if nextButton.backgroundColor == .blue {
+      self.present(WelcomeVC, animated: true, completion: nil)
+    }
   }
 }

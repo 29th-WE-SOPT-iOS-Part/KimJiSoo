@@ -27,9 +27,10 @@ class WelcomeViewController: UIViewController {
     layout()
     setNameinLabel()
   }
+  ///사용자 이름 데이터 받아오기
   func setNameinLabel() {
     if let name = usernameData {
-      usernameLabel.text = name
+      usernameLabel.text = "\(name)님"
       usernameLabel.sizeToFit()
     }
   }
@@ -58,7 +59,7 @@ extension WelcomeViewController {
   }
   func layoutUserNameLabel() {
     self.view.add(self.usernameLabel) {
-      $0.setupLabel(text: "\(self.usernameData)님", color: .black, font: .notoSansKRMediumFont(fontSize: 24))
+      $0.setupLabel(text: "", color: .black, font: .notoSansKRMediumFont(fontSize: 24))
       $0.snp.makeConstraints {
         $0.top.equalTo(self.logoImageView.snp.bottom).offset(20)
         $0.centerX.equalToSuperview()
@@ -77,6 +78,7 @@ extension WelcomeViewController {
   func layoutConfirmButton() {
     self.view.add(self.confirmButton) {
       $0.setupButton(title: "확인", color: .white, font: .notoSansKRRegularFont(fontSize: 18), backgroundColor: .blue, state: .normal, radius: 10)
+      $0.addTarget(self, action: #selector(self.confirmButtonClicked), for: .touchUpInside)
       $0.snp.makeConstraints {
         $0.top.equalTo(self.explainusernameLabel.snp.bottom).offset(40)
         $0.centerX.equalToSuperview()
@@ -84,5 +86,8 @@ extension WelcomeViewController {
         $0.height.equalTo(50)
       }
     }
+  }
+  @objc func confirmButtonClicked() {
+    self.dismiss(animated: true, completion: nil)
   }
 }

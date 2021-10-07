@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 // MARK: - LoginViewController
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
   
   // MARK: - Components
   let logoImageView = UIImageView()
@@ -31,11 +31,29 @@ class LoginViewController: UIViewController {
     self.view.backgroundColor = .white
     self.navigationController?.navigationBar.isHidden = true
     layout()
+    setTextField()
   }
-  
-  
+  ///TextField 세개에 내용이 모두 찼을 때 버튼이 활성화 되도록
+  func setTextField() {
+    self.nameTextField.delegate = self
+    self.emailTextField.delegate = self
+    self.passwordTextField.delegate = self
+    nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+    emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+    passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+  }
+  @objc func textFieldDidChange(_ textField: UITextField) {
+    if nameTextField.text!.isEmpty || emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
+      nextButton.isEnabled = false
+      nextButton.backgroundColor = .lightGray
+      nextButton.setTitleColor(.white, for: .normal)
+    } else {
+      nextButton.isEnabled = true
+      nextButton.backgroundColor = .blue
+      nextButton.setTitleColor(.white, for: .normal)
+    }
+  }
 }
-
 // MARK: - Extension
 extension LoginViewController {
   
@@ -171,7 +189,7 @@ extension LoginViewController {
   }
   func layoutNextButton() {
     self.view.add(self.nextButton) {
-      $0.setupButton(title: "다음", color: .white, font: .notoSansKRRegularFont(fontSize: 14), backgroundColor: .blue, state: .normal, radius: 8)
+      $0.setupButton(title: "다음", color: .white, font: .notoSansKRRegularFont(fontSize: 14), backgroundColor: .lightGray, state: .normal, radius: 8)
       $0.addTarget(self, action: #selector(self.nextButtonClicked), for: .touchUpInside)
       $0.snp.makeConstraints {
         $0.top.equalTo(self.createaccountButton)
@@ -192,7 +210,11 @@ extension LoginViewController {
     let WelcomeVC = WelcomeViewController()
     WelcomeVC.modalTransitionStyle = .crossDissolve
     WelcomeVC.modalPresentationStyle = .fullScreen
+    /// 사용자 데이터 전달
     WelcomeVC.usernameData = nameTextField.text
-    self.present(WelcomeVC, animated: true, completion: nil)
+    /// 버튼이 활성화 되었을 때만 완료 화면으로 넘어가게
+    if nextButton.backgroundColor == .blue {
+      self.present(WelcomeVC, animated: true, completion: nil)
+    }
   }
 }
