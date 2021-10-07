@@ -147,16 +147,14 @@ extension SignupViewController {
     }
   }
   func layoutShowPasswordButton() {
-    self.view.add(showpasswordButton) {
-      $0.borderWidth = 1
-      $0.borderColor = .lightGray
-      $0.setImage(UIImage(contentsOfFile: ""), for: .normal)
-      $0.setImage(UIImage(contentsOfFile: ""), for: .selected)
+    self.view.add(self.showpasswordButton) {
+      $0.setImage(UIImage(named: "checkbox_unselected"), for: .normal)
+      $0.addTarget(self, action: #selector(self.checkboxButtonClicked), for: .touchUpInside)
       $0.snp.makeConstraints {
         $0.top.equalTo(self.passwordTextFieldBorderView.snp.bottom).offset(15)
         $0.leading.equalTo(self.passwordTextFieldBorderView.snp.leading)
-        $0.width.equalTo(15)
-        $0.height.equalTo(15)
+        $0.width.equalTo(20)
+        $0.height.equalTo(20)
       }
     }
   }
@@ -165,7 +163,7 @@ extension SignupViewController {
       $0.setupLabel(text: "비밀번호 표시", color: .black, font: .notoSansKRRegularFont(fontSize: 12))
       $0.snp.makeConstraints {
         $0.centerY.equalTo(self.showpasswordButton)
-        $0.leading.equalTo(self.showpasswordButton.snp.trailing).offset(10)
+        $0.leading.equalTo(self.showpasswordButton.snp.trailing).offset(5)
       }
     }
   }
@@ -182,10 +180,23 @@ extension SignupViewController {
     }
   }
   // MARK: - General Helpers
+  @objc func checkboxButtonClicked() {
+    if showpasswordButton.isSelected == false {
+      showpasswordButton.setImage(UIImage(named: "checkbox_selected"), for: .normal)
+      /// showpasswordButton 의 상태를 true로 바꿔준다
+      showpasswordButton.isSelected = true
+    }
+    else {
+      showpasswordButton.setImage(UIImage(named: "checkbox_unselected"), for: .normal)
+      /// showpasswordButton 의 상태를 false로 바꿔준다
+      showpasswordButton.isSelected = false
+    }
+  }
   @objc func nextButtonClicked() {
     let WelcomeVC = WelcomeViewController()
     WelcomeVC.modalTransitionStyle = .crossDissolve
     WelcomeVC.modalPresentationStyle = .fullScreen
+    WelcomeVC.usernameData = nameTextField.text
     self.present(WelcomeVC, animated: true, completion: nil)
   }
 }

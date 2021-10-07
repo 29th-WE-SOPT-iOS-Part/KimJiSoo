@@ -15,7 +15,9 @@ class WelcomeViewController: UIViewController {
   // MARK: - Components
   let logoImageView = UIImageView()
   let usernameLabel = UILabel()
+  let explainusernameLabel = UILabel()
   let confirmButton = UIButton()
+  var usernameData : String?
   
   // MARK: - LifeCycle
   override func viewDidLoad() {
@@ -23,6 +25,13 @@ class WelcomeViewController: UIViewController {
     self.view.backgroundColor = .white
     self.navigationController?.navigationBar.isHidden = true
     layout()
+    setNameinLabel()
+  }
+  func setNameinLabel() {
+    if let name = usernameData {
+      usernameLabel.text = name
+      usernameLabel.sizeToFit()
+    }
   }
 }
 
@@ -33,6 +42,7 @@ extension WelcomeViewController {
   func layout() {
     layoutLogoImageView()
     layoutUserNameLabel()
+    layoutExplainUserNameLabel()
     layoutConfirmButton()
   }
   func layoutLogoImageView() {
@@ -48,11 +58,18 @@ extension WelcomeViewController {
   }
   func layoutUserNameLabel() {
     self.view.add(self.usernameLabel) {
-      $0.setupLabel(text: "000님\n환영합니다", color: .black, font: .notoSansKRMediumFont(fontSize: 24))
-      $0.numberOfLines = 2
-      $0.textAlignment = .center
+      $0.setupLabel(text: "\(self.usernameData)님", color: .black, font: .notoSansKRMediumFont(fontSize: 24))
       $0.snp.makeConstraints {
         $0.top.equalTo(self.logoImageView.snp.bottom).offset(20)
+        $0.centerX.equalToSuperview()
+      }
+    }
+  }
+  func layoutExplainUserNameLabel() {
+    self.view.add(self.explainusernameLabel) {
+      $0.setupLabel(text: "환영합니다", color: .black, font: .notoSansKRRegularFont(fontSize: 24))
+      $0.snp.makeConstraints {
+        $0.top.equalTo(self.usernameLabel.snp.bottom).offset(3)
         $0.centerX.equalToSuperview()
       }
     }
@@ -61,7 +78,7 @@ extension WelcomeViewController {
     self.view.add(self.confirmButton) {
       $0.setupButton(title: "확인", color: .white, font: .notoSansKRRegularFont(fontSize: 18), backgroundColor: .blue, state: .normal, radius: 10)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.usernameLabel.snp.bottom).offset(40)
+        $0.top.equalTo(self.explainusernameLabel.snp.bottom).offset(40)
         $0.centerX.equalToSuperview()
         $0.width.equalTo(315)
         $0.height.equalTo(50)

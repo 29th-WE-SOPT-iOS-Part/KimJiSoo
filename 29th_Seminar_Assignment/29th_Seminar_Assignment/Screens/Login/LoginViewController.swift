@@ -192,6 +192,7 @@ extension LoginViewController {
     let WelcomeVC = WelcomeViewController()
     WelcomeVC.modalTransitionStyle = .crossDissolve
     WelcomeVC.modalPresentationStyle = .fullScreen
+    WelcomeVC.usernameData = nameTextField.text
     self.present(WelcomeVC, animated: true, completion: nil)
   }
 }
