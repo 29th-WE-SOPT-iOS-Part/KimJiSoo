@@ -88,7 +88,7 @@ extension SignupViewController {
     self.view.add(self.signupLabel) {
       $0.setupLabel(text: "회원가입", color: .black, font: .notoSansKRMediumFont(fontSize: 24))
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.logoImageView.snp.bottom).offset(20)
+        $0.top.equalTo(self.logoImageView.snp.bottom).offset(23)
         $0.centerX.equalToSuperview()
       }
     }
@@ -99,7 +99,7 @@ extension SignupViewController {
       $0.borderColor = .lightGray
       $0.setRounded(radius: 5)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.signupLabel.snp.bottom).offset(110)
+        $0.top.equalTo(self.signupLabel.snp.bottom).offset(128)
         $0.centerX.equalToSuperview()
         $0.width.equalTo(315)
         $0.height.equalTo(50)
@@ -124,7 +124,7 @@ extension SignupViewController {
       $0.borderColor = .lightGray
       $0.setRounded(radius: 5)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.nameTextFieldBorderView.snp.bottom).offset(12)
+        $0.top.equalTo(self.nameTextFieldBorderView.snp.bottom).offset(17)
         $0.centerX.equalToSuperview()
         $0.width.equalTo(315)
         $0.height.equalTo(50)
@@ -149,7 +149,7 @@ extension SignupViewController {
       $0.borderColor = .lightGray
       $0.setRounded(radius: 5)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.emailTextFieldBorderView.snp.bottom).offset(12)
+        $0.top.equalTo(self.emailTextFieldBorderView.snp.bottom).offset(17)
         $0.centerX.equalToSuperview()
         $0.width.equalTo(315)
         $0.height.equalTo(50)
@@ -174,7 +174,7 @@ extension SignupViewController {
       $0.setImage(UIImage(named: "checkbox_unselected"), for: .normal)
       $0.addTarget(self, action: #selector(self.checkboxButtonClicked), for: .touchUpInside)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.passwordTextFieldBorderView.snp.bottom).offset(15)
+        $0.top.equalTo(self.passwordTextFieldBorderView.snp.bottom).offset(17)
         $0.leading.equalTo(self.passwordTextFieldBorderView.snp.leading)
         $0.width.equalTo(20)
         $0.height.equalTo(20)
@@ -196,7 +196,7 @@ extension SignupViewController {
       $0.isEnabled = false
       $0.addTarget(self, action: #selector(self.nextButtonClicked), for: .touchUpInside)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.showpasswordLabel.snp.bottom).offset(40)
+        $0.top.equalTo(self.showpasswordLabel.snp.bottom).offset(29)
         $0.centerX.equalToSuperview()
         $0.width.equalTo(315)
         $0.height.equalTo(50)

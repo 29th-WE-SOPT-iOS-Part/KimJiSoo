@@ -86,7 +86,7 @@ extension LoginViewController {
     self.view.add(self.loginLabel) {
       $0.setupLabel(text: "로그인", color: .black, font: .notoSansKRMediumFont(fontSize: 24))
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.logoImageView.snp.bottom).offset(20)
+        $0.top.equalTo(self.logoImageView.snp.bottom).offset(23)
         $0.centerX.equalToSuperview()
       }
     }
@@ -97,7 +97,7 @@ extension LoginViewController {
       $0.numberOfLines = 2
       $0.textAlignment = .center
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.loginLabel.snp.bottom).offset(35)
+        $0.top.equalTo(self.loginLabel.snp.bottom).offset(14)
         $0.centerX.equalToSuperview()
       }
     }
@@ -108,7 +108,7 @@ extension LoginViewController {
       $0.borderColor = .lightGray
       $0.setRounded(radius: 5)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.loginexplainLabel.snp.bottom).offset(35)
+        $0.top.equalTo(self.loginexplainLabel.snp.bottom).offset(68)
         $0.centerX.equalToSuperview()
         $0.width.equalTo(315)
         $0.height.equalTo(50)
@@ -133,7 +133,7 @@ extension LoginViewController {
       $0.borderColor = .lightGray
       $0.setRounded(radius: 5)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.nameTextFieldBorderView.snp.bottom).offset(12)
+        $0.top.equalTo(self.nameTextFieldBorderView.snp.bottom).offset(17)
         $0.centerX.equalToSuperview()
         $0.width.equalTo(315)
         $0.height.equalTo(50)
@@ -158,7 +158,7 @@ extension LoginViewController {
       $0.borderColor = .lightGray
       $0.setRounded(radius: 5)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.emailTextFieldBorderView.snp.bottom).offset(12)
+        $0.top.equalTo(self.emailTextFieldBorderView.snp.bottom).offset(17)
         $0.centerX.equalToSuperview()
         $0.width.equalTo(315)
         $0.height.equalTo(50)
@@ -182,7 +182,7 @@ extension LoginViewController {
       $0.setupButton(title: "계정 만들기", color: .blue, font: .notoSansKRRegularFont(fontSize: 14), backgroundColor: .clear, state: .normal, radius: 0)
       $0.addTarget(self, action: #selector(self.createaccountButtonClicked), for: .touchUpInside)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.passwordTextFieldBorderView.snp.bottom).offset(60)
+        $0.top.equalTo(self.passwordTextFieldBorderView.snp.bottom).offset(73)
         $0.leading.equalToSuperview().offset(35)
       }
     }

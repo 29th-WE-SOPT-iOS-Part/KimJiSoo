@@ -26,6 +26,12 @@
 		E86D33F8270DE768009F3F25 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D33F6270DE768009F3F25 /* UIImageView+.swift */; };
 		E86D33FB270DE778009F3F25 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D33F9270DE778009F3F25 /* UITextField+.swift */; };
 		E86D33FC270DE778009F3F25 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D33FA270DE778009F3F25 /* UILabel+.swift */; };
+		E8A1AFEE2721377B00AE1B67 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1AFED2721377B00AE1B67 /* TabBarViewController.swift */; };
+		E8A1AFF12721382000AE1B67 /* FirstTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1AFF02721382000AE1B67 /* FirstTabViewController.swift */; };
+		E8A1AFF32721382B00AE1B67 /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1AFF22721382B00AE1B67 /* SecondTabViewController.swift */; };
+		E8A1AFF92721390400AE1B67 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1AFF82721390400AE1B67 /* FifthTabViewController.swift */; };
+		E8A1AFFB272143E800AE1B67 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1AFFA272143E800AE1B67 /* ThirdTabViewController.swift */; };
+		E8A1AFFD272143F100AE1B67 /* FourthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1AFFC272143F100AE1B67 /* FourthTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +57,12 @@
 		E86D33F6270DE768009F3F25 /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+.swift"; path = "../../../../../../28th_SOPT_APPJAM/CA-PIN_iOS/CA-PIN_IOS/CA-PIN_IOS/Global/Extensions/UIImageView+.swift"; sourceTree = "<group>"; };
 		E86D33F9270DE778009F3F25 /* UITextField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+.swift"; path = "../../../../../../28th_SOPT_APPJAM/CA-PIN_iOS/CA-PIN_IOS/CA-PIN_IOS/Global/Extensions/UITextField+.swift"; sourceTree = "<group>"; };
 		E86D33FA270DE778009F3F25 /* UILabel+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+.swift"; path = "../../../../../../28th_SOPT_APPJAM/CA-PIN_iOS/CA-PIN_IOS/CA-PIN_IOS/Global/Extensions/UILabel+.swift"; sourceTree = "<group>"; };
+		E8A1AFED2721377B00AE1B67 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		E8A1AFF02721382000AE1B67 /* FirstTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabViewController.swift; sourceTree = "<group>"; };
+		E8A1AFF22721382B00AE1B67 /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
+		E8A1AFF82721390400AE1B67 /* FifthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthTabViewController.swift; sourceTree = "<group>"; };
+		E8A1AFFA272143E800AE1B67 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
+		E8A1AFFC272143F100AE1B67 /* FourthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTabViewController.swift; sourceTree = "<group>"; };
 		F966B1DADD3B31D75D3F03EB /* Pods-29th_Seminar_Assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-29th_Seminar_Assignment.debug.xcconfig"; path = "Target Support Files/Pods-29th_Seminar_Assignment/Pods-29th_Seminar_Assignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +157,12 @@
 				E86D33C7270DE21A009F3F25 /* LoginViewController.swift */,
 				E86D33ED270DE4AF009F3F25 /* SignupViewController.swift */,
 				E86D33EF270DE4B7009F3F25 /* WelcomeViewController.swift */,
+				E8A1AFED2721377B00AE1B67 /* TabBarViewController.swift */,
+				E8A1AFF02721382000AE1B67 /* FirstTabViewController.swift */,
+				E8A1AFF22721382B00AE1B67 /* SecondTabViewController.swift */,
+				E8A1AFFA272143E800AE1B67 /* ThirdTabViewController.swift */,
+				E8A1AFFC272143F100AE1B67 /* FourthTabViewController.swift */,
+				E8A1AFF82721390400AE1B67 /* FifthTabViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -297,8 +315,14 @@
 				E86D33FB270DE778009F3F25 /* UITextField+.swift in Sources */,
 				E86D33C8270DE21A009F3F25 /* LoginViewController.swift in Sources */,
 				E86D33F4270DE745009F3F25 /* UIButton+.swift in Sources */,
+				E8A1AFEE2721377B00AE1B67 /* TabBarViewController.swift in Sources */,
 				E86D33F0270DE4B7009F3F25 /* WelcomeViewController.swift in Sources */,
+				E8A1AFF32721382B00AE1B67 /* SecondTabViewController.swift in Sources */,
+				E8A1AFFD272143F100AE1B67 /* FourthTabViewController.swift in Sources */,
+				E8A1AFF12721382000AE1B67 /* FirstTabViewController.swift in Sources */,
+				E8A1AFFB272143E800AE1B67 /* ThirdTabViewController.swift in Sources */,
 				E86D33C4270DE21A009F3F25 /* AppDelegate.swift in Sources */,
+				E8A1AFF92721390400AE1B67 /* FifthTabViewController.swift in Sources */,
 				E86D33F7270DE768009F3F25 /* UIView+.swift in Sources */,
 				E86D33EE270DE4AF009F3F25 /* SignupViewController.swift in Sources */,
 				E86D33FC270DE778009F3F25 /* UILabel+.swift in Sources */,

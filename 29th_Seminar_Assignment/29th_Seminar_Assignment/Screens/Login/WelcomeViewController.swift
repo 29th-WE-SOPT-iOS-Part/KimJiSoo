@@ -17,6 +17,7 @@ class WelcomeViewController: UIViewController {
   let usernameLabel = UILabel()
   let explainusernameLabel = UILabel()
   let confirmButton = UIButton()
+  let anotherAccountButton = UIButton()
   var usernameData : String?
   
   // MARK: - LifeCycle
@@ -45,6 +46,7 @@ extension WelcomeViewController {
     layoutUserNameLabel()
     layoutExplainUserNameLabel()
     layoutConfirmButton()
+    layoutAnotherAccountButton()
   }
   func layoutLogoImageView() {
     self.view.add(self.logoImageView) {
@@ -61,7 +63,7 @@ extension WelcomeViewController {
     self.view.add(self.usernameLabel) {
       $0.setupLabel(text: "", color: .black, font: .notoSansKRMediumFont(fontSize: 24))
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.logoImageView.snp.bottom).offset(20)
+        $0.top.equalTo(self.logoImageView.snp.bottom).offset(23)
         $0.centerX.equalToSuperview()
       }
     }
@@ -80,14 +82,34 @@ extension WelcomeViewController {
       $0.setupButton(title: "확인", color: .white, font: .notoSansKRRegularFont(fontSize: 18), backgroundColor: .blue, state: .normal, radius: 10)
       $0.addTarget(self, action: #selector(self.confirmButtonClicked), for: .touchUpInside)
       $0.snp.makeConstraints {
-        $0.top.equalTo(self.explainusernameLabel.snp.bottom).offset(40)
+        $0.top.equalTo(self.explainusernameLabel.snp.bottom).offset(53)
         $0.centerX.equalToSuperview()
         $0.width.equalTo(315)
         $0.height.equalTo(50)
       }
     }
   }
+  func layoutAnotherAccountButton() {
+    self.view.add(self.anotherAccountButton) {
+      $0.setupButton(title: "다른 계정으로 로그인하기", color: .blue, font: .notoSansKRRegularFont(fontSize: 14), backgroundColor: .clear, state: .normal, radius: 0)
+      $0.addTarget(self, action: #selector(self.anotherAccountButtonClicked), for: .touchUpInside)
+      $0.snp.makeConstraints {
+        $0.top.equalTo(self.confirmButton.snp.bottom).offset(23)
+        $0.centerX.equalToSuperview()
+      }
+    }
+  }
   @objc func confirmButtonClicked() {
-    self.dismiss(animated: true, completion: nil)
+    let TabbarVC = TabBarViewController()
+    TabbarVC.modalTransitionStyle = .crossDissolve
+    TabbarVC.modalPresentationStyle = .fullScreen
+    self.present(TabbarVC, animated: true, completion: nil)
+  }
+  
+  @objc func anotherAccountButtonClicked() {
+    guard let parentVC = presentingViewController as? UINavigationController else { return }
+    self.dismiss(animated: true) {
+      parentVC.popToRootViewController(animated: true)
+    }
   }
 }
