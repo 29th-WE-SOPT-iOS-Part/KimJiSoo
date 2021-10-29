@@ -32,17 +32,20 @@ class FirstTabViewController: UIViewController {
   }()
   let videoTableView = UITableView()
   var videoList : [VideoModel] = []
+  var shortsList : [ShortsListModel] = []
+  
   // MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationController?.isNavigationBarHidden = true
-//    self.shortsCollectionView.delegate = self
-//    self.shortsCollectionView.dataSource = self
+    self.shortsCollectionView.delegate = self
+    self.shortsCollectionView.dataSource = self
     self.videoTableView.delegate = self
     self.videoTableView.dataSource = self
     layout()
     register()
     setVideoList()
+    setShortsList()
   }
   func setVideoList() {
     videoList.append(contentsOf: [
@@ -58,6 +61,16 @@ class FirstTabViewController: UIViewController {
                  info: "WE SOPT ・조회수 100만회 ・ 2주 전"),
       VideoModel(explain: "1차 iOS 세미나 : iOS 컴포넌트 이해, Xcode\n 기본 사용법, View 화면전환",
                  info: "WE SOPT ・조회수 100만회 ・ 1주 전")
+    ])
+  }
+  func setShortsList() {
+    shortsList.append(contentsOf: [
+      ShortsListModel(profile: "iOS Part"),
+      ShortsListModel(profile: "Android Part"),
+      ShortsListModel(profile: "Server Part"),
+      ShortsListModel(profile: "Plan Part"),
+      ShortsListModel(profile: "Design Part"),
+      ShortsListModel(profile: "iOS Part"),
     ])
   }
 }
@@ -168,7 +181,8 @@ extension FirstTabViewController {
   }
   func layoutShortsCollectionView() {
     self.mainScrollContainerView.add(shortsCollectionView) {
-      $0.backgroundColor = .orange
+      $0.backgroundColor = .white
+      $0.showsHorizontalScrollIndicator = false
       $0.snp.makeConstraints {
         $0.top.equalTo(self.menuContainerView.snp.bottom)
         $0.height.equalTo(104)
@@ -188,7 +202,7 @@ extension FirstTabViewController {
         $0.leading.equalTo(self.mainScrollContainerView.snp.leading)
         $0.trailing.equalTo(self.mainScrollContainerView.snp.trailing)
         $0.bottom.equalTo(self.mainScrollContainerView.snp.bottom)
-        $0.height.equalTo(2000)
+        $0.height.equalTo(1850)
       }
     }
   }
@@ -213,16 +227,32 @@ extension FirstTabViewController : UITableViewDataSource {
   }
 }
 
-//extension FirstTabViewController : UICollectionViewDelegate {
-//}
-//extension FirstTabViewController : UICollectionViewDataSource {
-//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//  }
-//
-//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//  }
-//
-//
-//}
+extension FirstTabViewController : UICollectionViewDelegate {
+}
+extension FirstTabViewController : UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 6
+  }
+
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let shortsCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShortsCollectionViewCell.identifier, for: indexPath) as? ShortsCollectionViewCell else {return UICollectionViewCell() }
+    shortsCell.setData(profile: shortsList[indexPath.row].profile)
+    shortsCell.awakeFromNib()
+    return shortsCell
+  }
+}
+
+extension FirstTabViewController : UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let cellWidth = 72
+    let cellHeight = 104
+    
+    return CGSize(width: cellWidth, height: cellHeight)
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return UIEdgeInsets.zero
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return 0
+  }
+}

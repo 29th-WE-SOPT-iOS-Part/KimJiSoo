@@ -36,6 +36,7 @@
 		E8BD7AB6272BCAA400FB92C5 /* ShortsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7AB5272BCAA400FB92C5 /* ShortsCollectionViewCell.swift */; };
 		E8BD7AB9272BCD1B00FB92C5 /* identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7AB8272BCD1B00FB92C5 /* identifiable.swift */; };
 		E8BD7ABC272BDA1F00FB92C5 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7ABB272BDA1F00FB92C5 /* VideoModel.swift */; };
+		E8BD7ABE272BE2F100FB92C5 /* ShortsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7ABD272BE2F100FB92C5 /* ShortsListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		E8BD7AB5272BCAA400FB92C5 /* ShortsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8BD7AB8272BCD1B00FB92C5 /* identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifiable.swift; sourceTree = "<group>"; };
 		E8BD7ABB272BDA1F00FB92C5 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		E8BD7ABD272BE2F100FB92C5 /* ShortsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsListModel.swift; sourceTree = "<group>"; };
 		F966B1DADD3B31D75D3F03EB /* Pods-29th_Seminar_Assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-29th_Seminar_Assignment.debug.xcconfig"; path = "Target Support Files/Pods-29th_Seminar_Assignment/Pods-29th_Seminar_Assignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				E8BD7ABB272BDA1F00FB92C5 /* VideoModel.swift */,
+				E8BD7ABD272BE2F100FB92C5 /* ShortsListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				E86D33F0270DE4B7009F3F25 /* WelcomeViewController.swift in Sources */,
 				E8A1AFF32721382B00AE1B67 /* SecondTabViewController.swift in Sources */,
 				E8A1AFFD272143F100AE1B67 /* FourthTabViewController.swift in Sources */,
+				E8BD7ABE272BE2F100FB92C5 /* ShortsListModel.swift in Sources */,
 				E8BD7AB6272BCAA400FB92C5 /* ShortsCollectionViewCell.swift in Sources */,
 				E8A1AFF12721382000AE1B67 /* FirstTabViewController.swift in Sources */,
 				E8BD7ABC272BDA1F00FB92C5 /* VideoModel.swift in Sources */,
