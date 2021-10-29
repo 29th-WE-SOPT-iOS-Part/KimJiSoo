@@ -32,6 +32,9 @@
 		E8A1AFF92721390400AE1B67 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1AFF82721390400AE1B67 /* FifthTabViewController.swift */; };
 		E8A1AFFB272143E800AE1B67 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1AFFA272143E800AE1B67 /* ThirdTabViewController.swift */; };
 		E8A1AFFD272143F100AE1B67 /* FourthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1AFFC272143F100AE1B67 /* FourthTabViewController.swift */; };
+		E8BD7AB2272BCA7700FB92C5 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7AB1272BCA7700FB92C5 /* VideoTableViewCell.swift */; };
+		E8BD7AB6272BCAA400FB92C5 /* ShortsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7AB5272BCAA400FB92C5 /* ShortsCollectionViewCell.swift */; };
+		E8BD7AB9272BCD1B00FB92C5 /* identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7AB8272BCD1B00FB92C5 /* identifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		E8A1AFF82721390400AE1B67 /* FifthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthTabViewController.swift; sourceTree = "<group>"; };
 		E8A1AFFA272143E800AE1B67 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
 		E8A1AFFC272143F100AE1B67 /* FourthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTabViewController.swift; sourceTree = "<group>"; };
+		E8BD7AB1272BCA7700FB92C5 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		E8BD7AB5272BCAA400FB92C5 /* ShortsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsCollectionViewCell.swift; sourceTree = "<group>"; };
+		E8BD7AB8272BCD1B00FB92C5 /* identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifiable.swift; sourceTree = "<group>"; };
 		F966B1DADD3B31D75D3F03EB /* Pods-29th_Seminar_Assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-29th_Seminar_Assignment.debug.xcconfig"; path = "Target Support Files/Pods-29th_Seminar_Assignment/Pods-29th_Seminar_Assignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +152,7 @@
 		E86D33D9270DE3F0009F3F25 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				E8BD7AB7272BCD0D00FB92C5 /* Protocols */,
 				E86D33DB270DE40D009F3F25 /* Extensions */,
 			);
 			path = Global;
@@ -154,15 +161,11 @@
 		E86D33DA270DE400009F3F25 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E8BD7AAE272BCA4600FB92C5 /* Tab */,
 				E86D33C7270DE21A009F3F25 /* LoginViewController.swift */,
 				E86D33ED270DE4AF009F3F25 /* SignupViewController.swift */,
 				E86D33EF270DE4B7009F3F25 /* WelcomeViewController.swift */,
 				E8A1AFED2721377B00AE1B67 /* TabBarViewController.swift */,
-				E8A1AFF02721382000AE1B67 /* FirstTabViewController.swift */,
-				E8A1AFF22721382B00AE1B67 /* SecondTabViewController.swift */,
-				E8A1AFFA272143E800AE1B67 /* ThirdTabViewController.swift */,
-				E8A1AFFC272143F100AE1B67 /* FourthTabViewController.swift */,
-				E8A1AFF82721390400AE1B67 /* FifthTabViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -191,6 +194,44 @@
 				E86D33DF270DE43E009F3F25 /* NotoSansKR-Thin.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E8BD7AAE272BCA4600FB92C5 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				E8BD7AB0272BCA5800FB92C5 /* Cells */,
+				E8BD7AAF272BCA5300FB92C5 /* ViewControllers */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		E8BD7AAF272BCA5300FB92C5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8A1AFF02721382000AE1B67 /* FirstTabViewController.swift */,
+				E8A1AFF22721382B00AE1B67 /* SecondTabViewController.swift */,
+				E8A1AFFA272143E800AE1B67 /* ThirdTabViewController.swift */,
+				E8A1AFFC272143F100AE1B67 /* FourthTabViewController.swift */,
+				E8A1AFF82721390400AE1B67 /* FifthTabViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E8BD7AB0272BCA5800FB92C5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E8BD7AB1272BCA7700FB92C5 /* VideoTableViewCell.swift */,
+				E8BD7AB5272BCAA400FB92C5 /* ShortsCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E8BD7AB7272BCD0D00FB92C5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E8BD7AB8272BCD1B00FB92C5 /* identifiable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,15 +360,18 @@
 				E86D33F0270DE4B7009F3F25 /* WelcomeViewController.swift in Sources */,
 				E8A1AFF32721382B00AE1B67 /* SecondTabViewController.swift in Sources */,
 				E8A1AFFD272143F100AE1B67 /* FourthTabViewController.swift in Sources */,
+				E8BD7AB6272BCAA400FB92C5 /* ShortsCollectionViewCell.swift in Sources */,
 				E8A1AFF12721382000AE1B67 /* FirstTabViewController.swift in Sources */,
 				E8A1AFFB272143E800AE1B67 /* ThirdTabViewController.swift in Sources */,
 				E86D33C4270DE21A009F3F25 /* AppDelegate.swift in Sources */,
 				E8A1AFF92721390400AE1B67 /* FifthTabViewController.swift in Sources */,
+				E8BD7AB9272BCD1B00FB92C5 /* identifiable.swift in Sources */,
 				E86D33F7270DE768009F3F25 /* UIView+.swift in Sources */,
 				E86D33EE270DE4AF009F3F25 /* SignupViewController.swift in Sources */,
 				E86D33FC270DE778009F3F25 /* UILabel+.swift in Sources */,
 				E86D33F3270DE745009F3F25 /* UIFont+.swift in Sources */,
 				E86D33C6270DE21A009F3F25 /* SceneDelegate.swift in Sources */,
+				E8BD7AB2272BCA7700FB92C5 /* VideoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
