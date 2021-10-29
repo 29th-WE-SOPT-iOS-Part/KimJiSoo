@@ -22,9 +22,10 @@ class ShortsCollectionViewCell: UICollectionViewCell {
     super.awakeFromNib()
     layout()
   }
-  func setData(profile: String)
+  func setData(profile: String, appData: ShortsListModel)
   {
     profileLabel.text = profile
+    shortsImageView.image = appData.makeImage()
   }
 }
 
@@ -36,7 +37,6 @@ extension ShortsCollectionViewCell {
   }
   func layoutShortsImageView() {
     self.contentView.add(shortsImageView) {
-      $0.image = UIImage(named: "ggamju1")
       $0.snp.makeConstraints {
         $0.top.equalTo(self.contentView.snp.top).offset(14)
         $0.centerX.equalTo(self.contentView.snp.centerX)

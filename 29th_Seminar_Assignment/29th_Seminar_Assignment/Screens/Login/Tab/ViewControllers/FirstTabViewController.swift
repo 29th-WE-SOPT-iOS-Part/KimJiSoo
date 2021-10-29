@@ -65,12 +65,18 @@ class FirstTabViewController: UIViewController {
   }
   func setShortsList() {
     shortsList.append(contentsOf: [
-      ShortsListModel(profile: "iOS Part"),
-      ShortsListModel(profile: "Android Part"),
-      ShortsListModel(profile: "Server Part"),
-      ShortsListModel(profile: "Plan Part"),
-      ShortsListModel(profile: "Design Part"),
-      ShortsListModel(profile: "iOS Part"),
+      ShortsListModel(profile: "iOS Part",
+                      profileImageName: "ggamju1"),
+      ShortsListModel(profile: "Android Part",
+                      profileImageName: "ggamju2"),
+      ShortsListModel(profile: "Server Part",
+                      profileImageName: "ggamju3"),
+      ShortsListModel(profile: "Plan Part",
+                      profileImageName: "ggamju4"),
+      ShortsListModel(profile: "Design Part",
+                      profileImageName: "ggamju5"),
+      ShortsListModel(profile: "iOS Part",
+                      profileImageName: "ggamju6")
     ])
   }
 }
@@ -140,7 +146,7 @@ extension FirstTabViewController {
       $0.setImage(UIImage(named: "windowSharingIcon"), for: .normal)
       $0.snp.makeConstraints {
         $0.centerY.equalTo(self.menuContainerView)
-        $0.leading.equalTo(self.youtubeLogoImage.snp.trailing).offset(87)
+        $0.leading.equalTo(self.youtubeLogoImage.snp.trailing).offset(97)
         $0.height.equalTo(32)
         $0.width.equalTo(32)
       }
@@ -236,7 +242,7 @@ extension FirstTabViewController : UICollectionViewDataSource {
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let shortsCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShortsCollectionViewCell.identifier, for: indexPath) as? ShortsCollectionViewCell else {return UICollectionViewCell() }
-    shortsCell.setData(profile: shortsList[indexPath.row].profile)
+    shortsCell.setData(profile: shortsList[indexPath.row].profile, appData: shortsList[indexPath.row])
     shortsCell.awakeFromNib()
     return shortsCell
   }
