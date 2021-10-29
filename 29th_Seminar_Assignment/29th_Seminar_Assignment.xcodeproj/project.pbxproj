@@ -35,6 +35,7 @@
 		E8BD7AB2272BCA7700FB92C5 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7AB1272BCA7700FB92C5 /* VideoTableViewCell.swift */; };
 		E8BD7AB6272BCAA400FB92C5 /* ShortsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7AB5272BCAA400FB92C5 /* ShortsCollectionViewCell.swift */; };
 		E8BD7AB9272BCD1B00FB92C5 /* identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7AB8272BCD1B00FB92C5 /* identifiable.swift */; };
+		E8BD7ABC272BDA1F00FB92C5 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BD7ABB272BDA1F00FB92C5 /* VideoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		E8BD7AB1272BCA7700FB92C5 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		E8BD7AB5272BCAA400FB92C5 /* ShortsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8BD7AB8272BCD1B00FB92C5 /* identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifiable.swift; sourceTree = "<group>"; };
+		E8BD7ABB272BDA1F00FB92C5 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		F966B1DADD3B31D75D3F03EB /* Pods-29th_Seminar_Assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-29th_Seminar_Assignment.debug.xcconfig"; path = "Target Support Files/Pods-29th_Seminar_Assignment/Pods-29th_Seminar_Assignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +201,7 @@
 		E8BD7AAE272BCA4600FB92C5 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
+				E8BD7ABA272BDA0E00FB92C5 /* Models */,
 				E8BD7AB0272BCA5800FB92C5 /* Cells */,
 				E8BD7AAF272BCA5300FB92C5 /* ViewControllers */,
 			);
@@ -232,6 +235,14 @@
 				E8BD7AB8272BCD1B00FB92C5 /* identifiable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E8BD7ABA272BDA0E00FB92C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E8BD7ABB272BDA1F00FB92C5 /* VideoModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +373,7 @@
 				E8A1AFFD272143F100AE1B67 /* FourthTabViewController.swift in Sources */,
 				E8BD7AB6272BCAA400FB92C5 /* ShortsCollectionViewCell.swift in Sources */,
 				E8A1AFF12721382000AE1B67 /* FirstTabViewController.swift in Sources */,
+				E8BD7ABC272BDA1F00FB92C5 /* VideoModel.swift in Sources */,
 				E8A1AFFB272143E800AE1B67 /* ThirdTabViewController.swift in Sources */,
 				E86D33C4270DE21A009F3F25 /* AppDelegate.swift in Sources */,
 				E8A1AFF92721390400AE1B67 /* FifthTabViewController.swift in Sources */,

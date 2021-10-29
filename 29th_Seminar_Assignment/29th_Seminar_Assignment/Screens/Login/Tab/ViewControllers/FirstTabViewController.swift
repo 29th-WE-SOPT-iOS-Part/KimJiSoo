@@ -31,17 +31,34 @@ class FirstTabViewController: UIViewController {
     return collectionView
   }()
   let videoTableView = UITableView()
-  
+  var videoList : [VideoModel] = []
   // MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationController?.isNavigationBarHidden = true
 //    self.shortsCollectionView.delegate = self
 //    self.shortsCollectionView.dataSource = self
-//    self.videoTableView.delegate = self
-//    self.videoTableView.dataSource = self
+    self.videoTableView.delegate = self
+    self.videoTableView.dataSource = self
     layout()
     register()
+    setVideoList()
+  }
+  func setVideoList() {
+    videoList.append(contentsOf: [
+      VideoModel(explain: "1차 iOS 세미나 : iOS 컴포넌트 이해, Xcode\n 기본 사용법, View 화면전환",
+                 info: "WE SOPT ・조회수 100만회 ・ 5주 전"),
+      VideoModel(explain: "2차 iOS 세미나 : AutoLayout, StackView,\n TabBarController",
+                 info: "WE SOPT ・조회수 100만회 ・ 4주 전"),
+      VideoModel(explain: "3차 iOS 세미나 : ScrollView, Delegate\n Pattern, TableView, CollectionView",
+                 info: "WE SOPT ・조회수 100만회 ・ 3주 전"),
+      VideoModel(explain: "4차 iOS 세미나 : Cocoapods & Networking,\n REST API",
+                 info: "WE SOPT ・조회수 100만회 ・ 3주 전"),
+      VideoModel(explain: "7차 iOS 세미나 : Animation과 제스쳐, 데이\n터 전달 심화 ",
+                 info: "WE SOPT ・조회수 100만회 ・ 2주 전"),
+      VideoModel(explain: "1차 iOS 세미나 : iOS 컴포넌트 이해, Xcode\n 기본 사용법, View 화면전환",
+                 info: "WE SOPT ・조회수 100만회 ・ 1주 전")
+    ])
   }
 }
 // MARK: - Extension
@@ -162,8 +179,8 @@ extension FirstTabViewController {
   }
   func layoutVideoTableView() {
     self.mainScrollContainerView.add(videoTableView) {
-      $0.backgroundColor = .blue
-      $0.estimatedRowHeight = 306
+      self.videoTableView.rowHeight = 306
+      $0.backgroundColor = .white
       $0.translatesAutoresizingMaskIntoConstraints = false
       $0.separatorStyle = .none
       $0.snp.makeConstraints {
@@ -176,28 +193,35 @@ extension FirstTabViewController {
     }
   }
 }
-//
-//extension FirstTabViewController : UITableViewDelegate {
-//}
-//extension FirstTabViewController : UITableViewDataSource {
-//  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    <#code#>
-//  }
-//
-//  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//    <#code#>
-//  }
-//}
-//
+
+extension FirstTabViewController : UITableViewDelegate {
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 306
+  }
+}
+extension FirstTabViewController : UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 6
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let videoCell = tableView.dequeueReusableCell(withIdentifier: VideoTableViewCell.identifier, for: indexPath) as? VideoTableViewCell else { return UITableViewCell() }
+    videoCell.setData(explain: videoList[indexPath.row].explain,
+                      info: videoList[indexPath.row].info)
+    videoCell.awakeFromNib()
+    return videoCell
+  }
+}
+
 //extension FirstTabViewController : UICollectionViewDelegate {
 //}
 //extension FirstTabViewController : UICollectionViewDataSource {
 //  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    <#code#>
+//
 //  }
 //
 //  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//    <#code#>
+//
 //  }
 //
 //
