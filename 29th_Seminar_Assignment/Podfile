@@ -8,7 +8,7 @@ target '29th_Seminar_Assignment' do
 pod 'SnapKit'
 pod 'Then'
 pod 'Kingfisher'
-
+pod ‘Alamofire’, ‘~> 5.4’
   # Pods for 29th_Seminar_Assignment
 
 end

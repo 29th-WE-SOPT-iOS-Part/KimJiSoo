@@ -15,8 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     guard let windowScene = (scene as? UIWindowScene) else { return }
     window = UIWindow(windowScene: windowScene)
-    /// 네비게이션 뷰컨으로 루트뷰를 설정하고 싶을 때
-    window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+    window?.rootViewController = FirstTabViewController()
     window?.makeKeyAndVisible()
 
     guard let _ = (scene as? UIWindowScene) else { return }

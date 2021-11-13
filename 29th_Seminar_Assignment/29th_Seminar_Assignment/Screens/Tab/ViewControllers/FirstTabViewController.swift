@@ -177,6 +177,7 @@ extension FirstTabViewController {
   func layoutProfileIcon() {
     self.menuContainerView.add(profileIcon) {
       $0.setImage(UIImage(named: "wesoptProfile"), for: .normal)
+      $0.addTarget(self, action: #selector(self.profileButtonClicked), for: .touchUpInside)
       $0.snp.makeConstraints {
         $0.centerY.equalTo(self.menuContainerView)
         $0.leading.equalTo(self.searchIcon.snp.trailing).offset(17)
@@ -212,6 +213,14 @@ extension FirstTabViewController {
       }
     }
   }
+  //MARK:- General Helpers
+  @objc func profileButtonClicked() {
+    let LoginVC = LoginViewController()
+    LoginVC.modalTransitionStyle = .crossDissolve
+    LoginVC.modalPresentationStyle = .fullScreen
+    self.present(LoginVC, animated: true, completion: nil)
+    
+  }
 }
 
 extension FirstTabViewController : UITableViewDelegate {
@@ -239,7 +248,7 @@ extension FirstTabViewController : UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 6
   }
-
+  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let shortsCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShortsCollectionViewCell.identifier, for: indexPath) as? ShortsCollectionViewCell else {return UICollectionViewCell() }
     shortsCell.setData(profile: shortsList[indexPath.row].profile, appData: shortsList[indexPath.row])
