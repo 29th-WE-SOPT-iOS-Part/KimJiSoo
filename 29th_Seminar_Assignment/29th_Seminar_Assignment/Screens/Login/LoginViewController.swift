@@ -24,6 +24,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   let passwordTextFieldBorderView = UIView()
   let createaccountButton = UIButton()
   let nextButton = UIButton()
+  var usernameData : String?
   
   // MARK: - LifeCycle
   override func viewDidLoad() {
@@ -214,7 +215,48 @@ extension LoginViewController {
     WelcomeVC.usernameData = nameTextField.text
     /// 버튼이 활성화 되었을 때만 완료 화면으로 넘어가게
     if nextButton.backgroundColor == .blue {
-      self.present(WelcomeVC, animated: true, completion: nil)
+      requestLogin()
+      print("클릭")
     }
   }
 }
+
+// MARK: - Extensions
+extension LoginViewController {
+  func presentToWelcomeViewController() {
+    let welcomeVC = WelcomeViewController()
+    welcomeVC.modalPresentationStyle = .fullScreen
+    welcomeVC.usernameData = self.usernameData
+    present(welcomeVC, animated: true, completion: nil)
+  }
+}
+
+// MARK: - Network
+extension LoginViewController {
+  func requestLogin() {
+    LoginUserService.shared.login(email: emailTextField.text ?? "",
+                                  password: passwordTextField.text ?? "") { responseData in
+      switch responseData {
+      case .success(let loginResponse):
+        if let data = loginResponse as? LoginResponseDataModel{
+          self.simpleAlert(title: "로그인", message: data.message, okAction: { _ in
+            self.usernameData = data.data?.name
+            self.presentToWelcomeViewController()
+          })
+        }
+      case .requestErr(let message) :
+        if let message = message as? String {
+          self.simpleAlert(title: "로그인", message: message)
+      }
+      case.pathErr :
+      print("pathERR")
+      case .serverErr :
+      print("ServerERR")
+      case .networkFail:
+      print("networkFail")
+    }
+  }
+  
+}
+}
+
